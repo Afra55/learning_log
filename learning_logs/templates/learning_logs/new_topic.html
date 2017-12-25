@@ -1,0 +1,12 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+    <p>Add a new topic:</p>
+
+    <form action="{% url 'learning_logs:new_topic' %}" method='post'>
+        {% csrf_token %} {# 防止跨站请求伪造攻击 #}
+        {{ form.as_p }} {# 让 Django 自动创建显示表单所需都全部字段， as_p 修饰符让 Django 以段落格式渲染所有表单元素 #}
+        <button name="submit">add topic</button>
+    </form>
+
+{% endblock content %}
