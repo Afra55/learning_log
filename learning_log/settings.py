@@ -128,3 +128,27 @@ LOGIN_URL = '/users/login/'
 BOOTSTRAP3 = {
     'include_jquery': True
 }
+
+# Heroku 设置
+cwd = os.getcwd()  # 获取当前到工作目录
+if cwd == '/app' or cwd[:4] == '/tmp':  # 在 Heroku 部署中，当签工作目录总是 /app
+    import dj_database_url
+
+    # 配置数据库
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # 支持 https 请求
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Only allow heroku to host the project.
+    ALLOWED_HOSTS = ['*']
+    DEBUG = False
+
+    # Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
