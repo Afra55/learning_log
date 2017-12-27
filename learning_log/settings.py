@@ -143,7 +143,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':  # 在 Heroku 部署中，当签工作目
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Only allow heroku to host the project.
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['afra55-learning-log.herokuapp.com']
     DEBUG = False
 
     # Static asset configuration
