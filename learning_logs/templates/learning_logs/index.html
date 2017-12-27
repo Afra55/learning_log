@@ -1,9 +1,17 @@
 {% extends "learning_logs/base.html" %}
 
+{% block header %}
+    <div class='jumbotron'>
+        <h1>Track your learning.</h1>
+    </div>
+{% endblock %}
+
 {% block content %}
+    <h2>
+        <a href="{% url 'users:register' %}">Register an account</a> to make
+        your own Learning Log, and list the topics you're learning about.
+    </h2>
+    <h2>天净沙·秋思</h2>
 
-<p>天净沙·秋思</p>
-
-<p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</p>
-
+    <h3>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</h3>
 {% endblock %}
